@@ -3,37 +3,37 @@
 
 /**
  * _dtos - integer to string.
- * @di: integer to convert
+ * @d: integer to convert
  * Return: char pointer
  */
-char *_dtos(long di)
+char *_dtos(long d)
 {
-	int length = 1;
-	int sin = 0;
+	int len = 1;
+	int sign = 0;
 	int i = 0;
 	int ent;
-	long divi = 10;
-	char *bufer;
+	long div = 10;
+	char *buff;
 
-	if (di < 0)
+	if (d < 0)
 	{
-		sin = 1;
-		di = -di;
+		sign = 1;
+		d = -d;
 	}
-	while (di / divi > 0)
+	while (d / div > 0)
 	{
-		divi *= 10;
-		length++;
+		div *= 10;
+		len++;
 	}
-	bufer = malloc(sizeof(char) * length + sin + 1);
-	if (sin)
-		bufer[i++] = '-';
-	while (divi > 1)
+	buff = malloc(sizeof(char) * len + sign + 1);
+	if (sign)
+		buff[i++] = '-';
+	while (div > 1)
 	{
-		divi /= 10;
-		ent = di / divi;
-		bufer[i++] = '0' + (ent % 10);
+		div /= 10;
+		ent = d / div;
+		buff[i++] = '0' + (ent % 10);
 	}
-	bufer[i] = '\0';
-	return (bufer);
+	buff[i] = '\0';
+	return (buff);
 }

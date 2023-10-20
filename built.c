@@ -8,7 +8,7 @@
  */
 void built(char **args, ref_t *dynamic, char *pname)
 {
-	size_t a, b;
+	size_t i, j;
 
 	builts_cmd cmds[] = {
 		{"exit", _ext},
@@ -19,8 +19,8 @@ void built(char **args, ref_t *dynamic, char *pname)
 		{NULL, NULL}
 	};
 
-	for (a = 0; cmds[a].command_name; a++)
-		for (b = 0; args[b]; b++)
-			if (_strcmp(args[b], cmds[a].command_name) == 0)
-				cmds[a].function(args, dynamic, pname);
+	for (i = 0; cmds[i].command_name; i++)
+		for (j = 0; args[j]; j++)
+			if (_strcmp(args[j], cmds[i].command_name) == 0)
+				cmds[i].function(args, dynamic, pname);
 }

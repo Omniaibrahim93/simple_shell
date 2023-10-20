@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-  * check_cmd - check command exsistance.
-  * @command: command search for.
-  * @path: list of strings contain the value of PATH.
+  * check_cmd - check for command exsistance.
+  * @command: command to search for.
+  * @path: a list of strings contan the value of PATH.
   * @buf: the buffer to save the path of file commands
   * Return:	0 if not found
   *		1 if file command
@@ -11,7 +11,7 @@
   */
 int check_cmd(char *command, char **path, char *buf)
 {
-	int j;
+	int i;
 	char *builtins[] = {"env", "exit", "setenv", "unsetenv",
 		"cd", "alias", NULL};
 
@@ -24,10 +24,10 @@ int check_cmd(char *command, char **path, char *buf)
 		return (1);
 	}
 
-	j = 0;
-	while (builtins[j])
+	i = 0;
+	while (builtins[i])
 	{
-		if (_strcmp(builtins[j++], command) == 0)
+		if (_strcmp(builtins[i++], command) == 0)
 		{
 			_memset(buf, '\0', MAX_LENGTH);
 			_strcpy(buf, command);
@@ -37,16 +37,16 @@ int check_cmd(char *command, char **path, char *buf)
 
 	if (path == NULL)
 		return (-1);
-	j = 0;
-	while (path[j])
+	i = 0;
+	while (path[i])
 	{
 		_memset(buf, '\0', MAX_LENGTH);
-		_strcpy(buf, path[j]);
+		_strcpy(buf, path[i]);
 		_strcat(buf, "/");
 		_strcat(buf, command);
 		if (access(buf, F_OK) == 0)
 			return (1);
-		j++;
+		i++;
 	}
 	return (0);
 }

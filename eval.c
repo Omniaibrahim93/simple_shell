@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-  * eval - evaluate commands.
-  * @command: command to execute.
-  * @args: arg vector.
+  * eval - evaluates commands.
+  * @command: command to be executed.
+  * @args: arguments vector.
   */
 void eval(char *command, char **args)
 {

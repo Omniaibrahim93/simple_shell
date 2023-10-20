@@ -2,60 +2,60 @@
 
 /**
   * isnum - check for numbers
-  * @b: character to test
+  * @a: character to test
   * Return: 1 if number 0 otherwise
   */
-int isnum(char b)
+int isnum(char a)
 {
-	if (b >= '0' && b <= '9')
+	if (a >= '0' && a <= '9')
 		return (1);
 	return (0);
 }
 
 /**
   * hyphens - check number of minus signs
-  * @str: string to check
+  * @string: string to check
   * @i: where the iteration stopped
   * Return: number of hyphens
   */
-int hyphens(char *str, int *i)
+int hyphens(char *string, int *i)
 {
-	char *str1 = str;
-	int summ = 0;
+	char *str = string;
+	int sum = 0;
 
-	while (!isnum(*str1) && *str1 != '\0')
+	while (!isnum(*str) && *str != '\0')
 	{
 		(*i)++;
-		if (*str1++ == '-')
-			summ++;
+		if (*str++ == '-')
+			sum++;
 	}
-	return (summ);
+	return (sum);
 }
 
 /**
   * _atoi - convert a string to integer
-  * @str: string to convert
+  * @s: string to convert
   * Return: integer that is converted
   */
-int _atoi(char *str)
+int _atoi(char *s)
 {
-	int j = 0, num, ml = 1;
-	unsigned int answ = 0;
-	char *a = str;
+	int i = 0, num, mul = 1;
+	unsigned int ans = 0;
+	char *a = s;
 
-	num = hyphens(a, &j);
+	num = hyphens(a, &i);
 
-	a += j;
+	a += i;
 	while (isnum(*++a) && *a != '\0')
-		ml *= 10;
+		mul *= 10;
 
-	str += j;
-	while (isnum(*str) && *str != '\0')
+	s += i;
+	while (isnum(*s) && *s != '\0')
 	{
-		answ += (*str++ - '0') * ml;
-		ml /= 10;
+		ans += (*s++ - '0') * mul;
+		mul /= 10;
 	}
 	if (num % 2)
-		return (-((unsigned int)answ));
-	return (answ);
+		return (-((unsigned int)ans));
+	return (ans);
 }

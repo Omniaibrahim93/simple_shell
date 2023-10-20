@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _tokenize - fun split string into tokens.
+ * _tokenize - function that split a string into tokens, our own (strtok).
  * @str: the string to tokenize
  * @split: the delim used to split's string.
  * Return: the tokenize string on success, on failure NULL.
@@ -9,18 +9,18 @@
 
 char **_tokenize(char *str, char *split)
 {
-	char **tokss;
-	int delm = 0;
-	int j, indx = 0;
+	char **toks;
+	int delim = 0;
+	int i, index = 0;
 	int start, end;
 
 	if (!str || !split)
 		return (NULL);
-	for (j = 0; str[j]; j++)
-		if (_strchr(split, str[j]) != NULL)
-			delm++;
-	tokss = (char **)malloc(sizeof(char *) * (delm + 2));
-	if (!tokss)
+	for (i = 0; str[i]; i++)
+		if (_strchr(split, str[i]) != NULL)
+			delim++;
+	toks = (char **)malloc(sizeof(char *) * (delim + 2));
+	if (!toks)
 	{
 		perror("malloc");
 		return (NULL);
@@ -38,14 +38,14 @@ char **_tokenize(char *str, char *split)
 		while (str[end] != '\0' && _strchr(split, str[end]) == NULL)
 			end++;
 
-		tokss[indx] = malloc(end - start + 1);
-		_strncpy(tokss[indx], str + start, end - start);
-		tokss[indx][end - start] = '\0';
-		indx++;
+		toks[index] = malloc(end - start + 1);
+		_strncpy(toks[index], str + start, end - start);
+		toks[index][end - start] = '\0';
+		index++;
 		start = end;
 	}
 
-	tokss[indx] = NULL;
+	toks[index] = NULL;
 
-	return (tokss);
+	return (toks);
 }

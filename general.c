@@ -2,40 +2,40 @@
 
 /**
   * _getenv - get the value of an environment variable.
-  * @str: name of the env.
+  * @s: name of the env.
   * Return: string corrospond to value of the s.
   */
-char *_getenv(char *str)
+char *_getenv(char *s)
 {
-	unsigned int j = 0;
+	unsigned int i = 0;
 	char **env = environ;
-	size_t length = _strlen(s);
+	size_t len = _strlen(s);
 
-	while (env[j] && _strncmp(env[j], str, length))
-		j++;
+	while (env[i] && _strncmp(env[i], s, len))
+		i++;
 
-	if (env[j] == NULL)
+	if (env[i] == NULL)
 		return (NULL);
-	return (env[j] + length + 1);
+	return (env[i] + len + 1);
 }
 
 /**
-  * set_err_code - set value of ERR_CODE.
-  * @er: new error value.
+  * set_err_code - set the value of ERR_CODE.
+  * @err: new error value.
   * Return: return the value of ERR_CODE.
   */
-int set_err_code(int er)
+int set_err_code(int err)
 {
 	static int ERR_CODE;
 
-	if (-99 == er)
+	if (-99 == err)
 		return (ERR_CODE);
-	ERR_CODE = er;
-	return (er);
+	ERR_CODE = err;
+	return (err);
 }
 
 /**
-  * get_err_code - get value of ERR_CODE.
+  * get_err_code - get the value of ERR_CODE.
   * Return: ERR_CODE.
   */
 int get_err_code(void)
@@ -45,17 +45,17 @@ int get_err_code(void)
 
 /**
   * set_cmd_num - set command number.
-  * @numb: command number.
+  * @num: command number.
   * Return: commnad Number.
   */
-int set_cmd_num(int numb)
+int set_cmd_num(int num)
 {
 	static int CMD_NUM;
 
-	if (-99 == numb)
+	if (-99 == num)
 		return (CMD_NUM);
-	CMD_NUM = numb;
-	return (numb);
+	CMD_NUM = num;
+	return (num);
 }
 
 /**

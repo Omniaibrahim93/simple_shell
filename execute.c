@@ -8,7 +8,7 @@
   */
 void execute(pid_t pid, char *command, char **args)
 {
-	int stattus;
+	int status;
 
 	if (pid == 0)
 	{
@@ -17,7 +17,8 @@ void execute(pid_t pid, char *command, char **args)
 	}
 	else
 	{
-		waitpid(pid, &stattus, 0);
-		set_err_code(WEXITSTATUS(stattus));
+		/* parent process wait for child process */
+		waitpid(pid, &status, 0);
+		set_err_code(WEXITSTATUS(status));
 	}
 }

@@ -2,18 +2,18 @@
 
 /**
  * main - Entry Point
- * @argc: count of arguments.
+ * @argc: arguments count.
  * @argv: arguments string.
  * Return: 0 on Success
  */
 
 int main(int argc, char *argv[])
 {
-	char *path_bufer, **path = NULL;
+	char *path_buf, **path = NULL;
 
-	path_bufer = getpath();
-	if (path_bufer)
-		path = _tokenize(path_bufer, ":");
+	path_buf = getpath();
+	if (path_buf)
+		path = _tokenize(path_buf, ":");
 	if (argc == 1)
 	{
 		if (isatty(STDIN_FILENO))

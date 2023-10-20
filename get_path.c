@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
-  * getpath - Path environment.
-  * Return: pointer to path value.
+  * getpath - Path environment variable value.
+  * Return: char pointer to path value.
   */
 char *getpath(void)
 {

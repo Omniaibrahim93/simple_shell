@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-int _isdigit(int i);
+int _isdigit(int c);
 
 /**
  * _ext - our own exit built-in command
@@ -13,8 +13,8 @@ int _isdigit(int i);
 
 int _ext(char **arg, ref_t *dynamic, char *pname)
 {
-	int j = 0;
-	int stattus = 0;
+	int i = 0;
+	int status = 0;
 
 	if (arg[1])
 	{
@@ -31,9 +31,9 @@ int _ext(char **arg, ref_t *dynamic, char *pname)
 			free(dynamic);
 			exit(2);
 		}
-		while (arg[1][j])
+		while (arg[1][i])
 		{
-			if (_isdigit(arg[1][j]) == -1)
+			if (_isdigit(arg[1][i]) == -1)
 			{
 				print_illegal_number(arg, pname);
 				free_buf(arg);
@@ -46,9 +46,9 @@ int _ext(char **arg, ref_t *dynamic, char *pname)
 				free(dynamic);
 				exit(2);
 			}
-			j++;
+			i++;
 		}
-		stattus = _atoi(arg[1]);
+		status = _atoi(arg[1]);
 	}
 
 	free_buf(arg);
@@ -59,20 +59,20 @@ int _ext(char **arg, ref_t *dynamic, char *pname)
 	if (dynamic->ptr3)
 		free_buf(dynamic->ptr3);
 	free(dynamic);
-	if (stattus == 0)
+	if (status == 0)
 		exit(get_err_code());
-	exit(stattus);
+	exit(status);
 }
 
 /**
  * _isdigit - checks digit.
- * @i: input to be checked.
+ * @c: input to be checked.
  * Return: 0 on success, -1 on failure
  */
 
-int _isdigit(int i)
+int _isdigit(int c)
 {
-	if (i >= '0' && i <= '9')
+	if (c >= '0' && c <= '9')
 		return (0);
 	else
 		return (-1);

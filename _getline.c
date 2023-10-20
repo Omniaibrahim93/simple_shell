@@ -3,50 +3,50 @@
 /**
   * _getline - read line from the file descriptor.
   * @lineptr: variable to store input.
-  * @bs: buffer size.
-  * @fde: file descriptor.
+  * @n: buffer size.
+  * @fd: file descriptor.
   * Return: the number of bytes readed or -1 (eof, err, ...).
   */
 
-ssize_t _getline(char **lineptr, size_t *bs, int fde)
+ssize_t _getline(char **lineptr, size_t *n, int fd)
 {
 	char buffer[BUFFER_SIZE];
-	char *tmp = NULL;
-	ssize_t tot = 0;
+	char *temp = NULL;
+	ssize_t total = 0;
 	ssize_t nread;
 
-	if (lineptr == NULL || bs == NULL)
+	if (lineptr == NULL || n == NULL)
 		return (-1);
-	if (*lineptr == NULL || *bs == 0)
+	if (*lineptr == NULL || *n == 0)
 	{
-		*bs = BUFFER_SIZE;
-		*lineptr = malloc((*bs) + 1);
+		*n = BUFFER_SIZE;
+		*lineptr = malloc((*n) + 1);
 		if (*lineptr == NULL)
 			return (-1);
 	}
 	while (1)
 	{
-		nread = read(fde, buffer, BUFFER_SIZE);
+		nread = read(fd, buffer, BUFFER_SIZE);
 		if (nread == -1)
 			return (-1);
 		if (nread == 0)
 			break;
-		if ((size_t)(tot + nread + 1) > *bs)
+		if ((size_t)(total + nread + 1) > *n)
 		{
-			*bs = tot + nread + 1;
-			tmp = (char *)_realloc(*lineptr, (*bs) + 1);
+			*n = total + nread + 1;
+			temp = (char *)_realloc(*lineptr, (*n) + 1);
 
-			if (tmp == NULL)
+			if (temp == NULL)
 				return (-1);
 
-			*lineptr = tmp;
+			*lineptr = temp;
 		}
-		_memcpy(*lineptr + tot, buffer, nread);
-		tot += nread;
+		_memcpy(*lineptr + total, buffer, nread);
+		total += nread;
 		if (buffer[nread - 1] == '\n')
 			break;
 	}
 
-	(*lineptr)[tot] = '\0';
-	return (tot);
+	(*lineptr)[total] = '\0';
+	return (total);
 }

@@ -1,9 +1,9 @@
 #include <unistd.h>
 
 /**
- * _putchar - writes the character
- * @c: char to be printed
- * @file_no: file discriptor.
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ * @file_no: Standarad file discriptor.
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
