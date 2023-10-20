@@ -60,7 +60,7 @@ int _ext(char **arg, ref_t *dynamic, char *pname)
 		free_buf(dynamic->ptr3);
 	free(dynamic);
 	if (stattus == 0)
-		exit(get_error_code());
+		exit(get_err_code());
 	exit(stattus);
 }
 

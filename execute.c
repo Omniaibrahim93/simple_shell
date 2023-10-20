@@ -18,6 +18,6 @@ void execute(pid_t pid, char *command, char **args)
 	else
 	{
 		waitpid(pid, &stattus, 0);
-		set_error_code(WEXITSTATUS(stattus));
+		set_err_code(WEXITSTATUS(stattus));
 	}
 }
