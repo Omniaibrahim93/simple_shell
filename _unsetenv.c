@@ -17,7 +17,7 @@ int _unsetenv(char **arg, ref_t *dynamic, char *pname)
 	(void)pname;
 
 	for (posi = 0; arg[posi] != NULL; posi++)
-		if (_stringcmp(arg[posi], "unsetenv") == 0)
+		if (_strcmp(arg[posi], "unsetenv") == 0)
 			break;
 
 	var = getenv(arg[posi + 1]);

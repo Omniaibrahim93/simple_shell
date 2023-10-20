@@ -17,7 +17,7 @@ char **_tokenize(char *str, char *split)
 	if (!str || !split)
 		return (NULL);
 	for (j = 0; str[j]; j++)
-		if (_stringchr(split, str[j]) != NULL)
+		if (_strchr(split, str[j]) != NULL)
 			delm++;
 	tokss = (char **)malloc(sizeof(char *) * (delm + 2));
 	if (!tokss)
@@ -29,17 +29,17 @@ char **_tokenize(char *str, char *split)
 	start = 0;
 	while (str[start] != '\0')
 	{
-		while (str[start] != '\0' && _stringchr(split, str[start]) != NULL)
+		while (str[start] != '\0' && _strchr(split, str[start]) != NULL)
 			start++;
 		if (str[start] == '\0')
 			break;
 
 		end = start;
-		while (str[end] != '\0' && _stringchr(split, str[end]) == NULL)
+		while (str[end] != '\0' && _strchr(split, str[end]) == NULL)
 			end++;
 
 		tokss[indx] = malloc(end - start + 1);
-		_stringncpy(tokss[indx], str + start, end - start);
+		_strncpy(tokss[indx], str + start, end - start);
 		tokss[indx][end - start] = '\0';
 		indx++;
 		start = end;

@@ -9,9 +9,9 @@ char *_getenv(char *str)
 {
 	unsigned int j = 0;
 	char **env = environ;
-	size_t length = _stringlen(s);
+	size_t length = _strlen(s);
 
-	while (env[j] && _stringncmp(env[j], str, length))
+	while (env[j] && _strncmp(env[j], str, length))
 		j++;
 
 	if (env[j] == NULL)
@@ -20,11 +20,11 @@ char *_getenv(char *str)
 }
 
 /**
-  * set_error_code - set value of ERR_CODE.
+  * set_err_code - set value of ERR_CODE.
   * @er: new error value.
   * Return: return the value of ERR_CODE.
   */
-int set_error_code(int er)
+int set_err_code(int er)
 {
 	static int ERR_CODE;
 
@@ -35,12 +35,12 @@ int set_error_code(int er)
 }
 
 /**
-  * get_error_code - get value of ERR_CODE.
+  * get_err_code - get value of ERR_CODE.
   * Return: ERR_CODE.
   */
-int get_error_code(void)
+int get_err_code(void)
 {
-	return (set_error_code(-99));
+	return (set_err_code(-99));
 }
 
 /**

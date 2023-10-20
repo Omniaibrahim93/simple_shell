@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _stringncmp - funciton that compare two strings.
+ * _strncmp - funciton that compare two strings.
  * @str1: the 1st string.
  * @str2: the 2nd string.
  * @bn: buffer length to compare.
@@ -12,7 +12,7 @@
  * than in s2.
  */
 
-int _stringncmp(char *str1, char *str2, size_t bn)
+int _strncmp(char *str1, char *str2, size_t bn)
 {
 	if (!str1 || !str2)
 		return (-1);

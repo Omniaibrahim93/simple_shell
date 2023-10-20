@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-  * _stringcmp - compares two strings.
+  * _strcmp - compares two strings.
   * @str1: string 1
   * @str2: string 2
   * Return: 0 if equalls an integer otherwise
   */
-int _stringcmp(char *str1, char *str2)
+int _strcmp(char *str1, char *str2)
 {
 	int length_s1 = 0, length_s2 = 0;
 	int j = 0, m;

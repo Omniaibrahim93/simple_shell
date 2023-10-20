@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-  * _stringcat - concatenates two strings.
+  * _strcat - concatenates two strings.
   * @dst: string that will hold appended src
   * @src: string to append
   * Return: address of dest
   */
-char *_stringcat(char *dst, char *src)
+char *_strcat(char *dst, char *src)
 {
 	int dest_length = 0, j = 0;
 	char *m = dest, *n = src;

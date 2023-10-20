@@ -100,7 +100,7 @@ int get_cmd_num(void);
 int _putchar(char, int);
 int print_c(char c, int);
 int print_s(char *, int);
-int print_d(long , int);
+int print_d(long, int);
 
 /* built-ins function */
 

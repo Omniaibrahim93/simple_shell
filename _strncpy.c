@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
-  * _stringncpy - copies a string.
+  * _strncpy - copies a string.
   * @dst: destnation string
   * @src: source string
   * @bn: number of bytes from src to be copied
   * Return: destnation address
   */
-char *_stringncpy(char *dst, char *src, int bn)
+char *_strncpy(char *dst, char *src, int bn)
 {
 	int j = 0;
 

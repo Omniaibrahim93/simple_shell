@@ -18,14 +18,14 @@ void inner_process(char *str, char **path, char *pname,
 
 	for (j = 0; str[j] == ' '; j++)
 		space++;
-	if (space == _stringlen(str))
+	if (space == _strlen(str))
 		return;
 	args = _tokenize(str, " \t\r\n\0");
 	fond = check_cmd(args[0], path, bufer);
 	switch (fond)
 	{
 		case 1:
-			set_error_code(0);
+			set_err_code(0);
 			eval(bufer, args);
 			if (args)
 				free_buf(args);
@@ -38,7 +38,7 @@ void inner_process(char *str, char **path, char *pname,
 		default:
 			cmd_not_found(pname, command_num, args[0]);
 			fflush(stderr);
-			set_error_code(127);
+			set_err_code(127);
 			if (args)
 				free_buf(args);
 			break;

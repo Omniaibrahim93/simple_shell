@@ -29,7 +29,7 @@ char *_readline(int *command_num, int isaty, ref_t *dynamic)
 		free(stri);
 		free_buf(dynamic->ptr3);
 		free(dynamic);
-		exit(get_error_code());
+		exit(get_err_code());
 	}
 	else if (p == 0) /* CTRL+D Handler */
 	{
@@ -38,7 +38,7 @@ char *_readline(int *command_num, int isaty, ref_t *dynamic)
 		fflush(stdout);
 		free_buf(dynamic->ptr3);
 		free(dynamic);
-		exit(get_error_code());
+		exit(get_err_code());
 	}
 	return (stri);
 }

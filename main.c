@@ -41,5 +41,5 @@ int main(int argc, char *argv[])
 			free_buf(path);
 	}
 
-	return (get_error_code());
+	return (get_err_code());
 }
