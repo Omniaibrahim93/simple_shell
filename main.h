@@ -60,17 +60,17 @@ typedef struct identifier
 /* -> utilities functions */
 
 char **_tokenize(char *str, char *split);
-char *_stringcpy(char *dst, char *src);
-char *_stringcat(char *dst, char *src);
-int _stringcmp(char *str1, char *str2);
-int _stringncmp(char *str1, char *str2, size_t bn);
-int _stringlen(char *s);
+char *_strcpy(char *, char *src);
+char *_strcat(char *, char *src);
+int _strcmp(char *, char *);
+int _strncmp(char *, char *, size_t);
+int _strlen(char *);
 char *_memset(char *sa, char by, unsigned int n1);
-char *_stringchr(char *str, char c);
-char *_stringncpy(char *dst, char *src, int bn);
-char *_memcpy(char *dst, char *src, unsigned int b);
+char *_strchr(char *, char c);
+char *_strncpy(char *, char *src, int);
+char *_memcpy(char *, char *src, unsigned int);
 void *_realloc(void *ptr, size_t size);
-int _atoi(char *str);
+int _atoi(char *);
 char *_readline(int *command_num, int isaty, ref_t *);
 char *_dtos(long);
 char *read_textfile(char *filename, size_t letters);
@@ -80,7 +80,7 @@ int check_cmd(char *command, char **path, char buf[]);
 void process(char **path, char *pname, int isaty);
 void process_file(char **path, char *pname, char *fname);
 void execute(pid_t pid, char *command, char **args);
-void bult(char **args, ref_t *, char *pname);
+void built(char **args, ref_t *, char *pname);
 void eval(char *command, char **args);
 void cmd_not_found(char *pname, int command_num, char *command);
 void free_buf(char **arg);
@@ -88,19 +88,19 @@ void print_illegal_number(char **args, char *pname);
 void file_not_found(char *pname, char *fname);
 
 /* General functions */
-char *_getenv(char *str);
-ssize_t _getline(char **lineptr, size_t *bs, int fde);
+char *_getenv(char *);
+ssize_t _getline(char **lineptr, size_t *, int);
 int _putenv(char *string);
-int set_error_code(int);
-int get_error_code(void);
+int set_err_code(int);
+int get_err_code(void);
 int set_cmd_num(int);
 int get_cmd_num(void);
 
 /* printing functions */
 int _putchar(char, int);
 int print_c(char c, int);
-int print_s(char *str, int);
-int print_d(long di, int);
+int print_s(char *, int);
+int print_d(long , int);
 
 /* built-ins function */
 

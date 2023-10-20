@@ -20,17 +20,17 @@ int check_cmd(char *command, char **path, char *buf)
 	if (access(command, F_OK) == 0)
 	{
 		_memset(buf, '\0', MAX_LENGTH);
-		_stringcpy(buf, command);
+		_strcpy(buf, command);
 		return (1);
 	}
 
 	j = 0;
 	while (builtins[j])
 	{
-		if (_stringcmp(builtins[j++], command) == 0)
+		if (_strcmp(builtins[j++], command) == 0)
 		{
 			_memset(buf, '\0', MAX_LENGTH);
-			_stringcpy(buf, command);
+			_strcpy(buf, command);
 			return (2);
 		}
 	}
@@ -41,9 +41,9 @@ int check_cmd(char *command, char **path, char *buf)
 	while (path[j])
 	{
 		_memset(buf, '\0', MAX_LENGTH);
-		_stringcpy(buf, path[j]);
-		_stringcat(buf, "/");
-		_stringcat(buf, command);
+		_strcpy(buf, path[j]);
+		_strcat(buf, "/");
+		_strcat(buf, command);
 		if (access(buf, F_OK) == 0)
 			return (1);
 		j++;

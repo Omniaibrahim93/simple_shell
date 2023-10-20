@@ -43,7 +43,7 @@ int _cd(char **arg, __attribute__((unused))ref_t *dynamic, char *pname)
 	if (_set("OLDPWD", cwd) == -1)
 		return (-1);
 
-	set_error_code(0);
+	set_err_code(0);
 	return (0);
 
 }
@@ -59,7 +59,7 @@ char *_path(char **arg)
 
 	if (arg[1] == NULL)
 		return (_getenv("HOME"));
-	else if (_stringcmp(arg[1], "-") == 0)
+	else if (_strcmp(arg[1], "-") == 0)
 	{
 
 		if (_getenv("OLDPWD") == NULL)
@@ -83,13 +83,13 @@ int _set(char *name, char *value)
 {
 	char *ne;
 
-	ne = malloc(_stringlen(name) + _stringlen(value) + 2);
+	ne = malloc(_strlen(name) + _strlen(value) + 2);
 	if (ne == NULL)
 		return (-1);
 
-	_stringcpy(ne, name);
-	_stringcat(ne, "=");
-	_stringcat(ne, value);
+	_strcpy(ne, name);
+	_strcat(ne, "=");
+	_strcat(ne, value);
 
 	if (putenv(ne) == -1)
 		perror("putenv");
