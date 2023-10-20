@@ -9,17 +9,16 @@
 
 #define __silent __attribute__((__unused__))
 
-/***** STRUCTURES *****/
-
+/* Structures */
 /**
- * struct info- struct for the shell data
- * @program_name: the name of the executable
- * @params: number of args passed.
+ * struct info - Struct for the shell data
+ * @program_name: The name of the executable
+ * @params: Number of args passed
  */
 typedef struct info
 {
-	char *program_name;
-	int params;
+    char *program_name;
+    int params;
 } shell_data;
 
 void init(int argc, char *argv[], shell_data *data);

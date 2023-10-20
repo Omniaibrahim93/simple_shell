@@ -1,30 +1,30 @@
 #include "shell.h"
 
 /**
- * main - initialize the variables of the program.
- * @argc: number of values received from the command line.
- * @argv: An array of strings contains values received from the command line.
- * Return: zero on succes.
+ * main - Initialize the variables of the program.
+ * @argc: Number of values received from the command line.
+ * @argv: An array of strings containing values received from the command line.
+ * Return: Zero on success.
  */
 int main(int argc, char *argv[])
 {
-	shell_data data_struct = {NULL}, *data = &data_struct;
+    shell_data data_struct = {NULL}, *data = &data_struct;
 
-	init(argc, argv, data);
+    init(argc, argv, data);
 
-	show_prompt(data);
+    show_prompt(data);
 
-	return (0);
+    return (0);
 }
 
 /**
- * init - init the shell data.
- * @argc: number of values received from the command line.
- * @argv: An array of strings contains values received from the command line.
- * @data: shell data.
+ * init - Initialize the shell data.
+ * @argc: Number of values received from the command line.
+ * @argv: An array of strings containing values received from the command line.
+ * @data: Shell data.
  */
 void init(int argc, char *argv[], shell_data *data)
 {
-	data->program_name = argv[0];
-	data->params = argc;
+    data->program_name = argv[0];
+    data->params = argc;
 }
