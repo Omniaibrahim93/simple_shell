@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-  * free_buf - free a buffer array.
-  * @arg: buffer to free.
+  * free_buf - free buffer.
+  * @arg: buf to free.
   */
 void free_buf(char **arg)
 {
-	int i;
+	int j;
 
-	for (i = 0; arg[i]; i++)
-		free(arg[i]);
+	for (j = 0; arg[j]; j++)
+		free(arg[j]);
 	free(arg);
 }

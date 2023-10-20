@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * built - a function that handles the built-ins commands.
+ * bult - a function that handles the built-ins commands.
  * @args: user input tokenized as arguments.
  * @dynamic: dynamic reference.
  * @pname: program name.
  */
-void built(char **args, ref_t *dynamic, char *pname)
+void bult(char **args, ref_t *dynamic, char *pname)
 {
-	size_t i, j;
+	size_t a, b;
 
 	builts_cmd cmds[] = {
 		{"exit", _ext},
@@ -19,8 +19,8 @@ void built(char **args, ref_t *dynamic, char *pname)
 		{NULL, NULL}
 	};
 
-	for (i = 0; cmds[i].command_name; i++)
-		for (j = 0; args[j]; j++)
-			if (_strcmp(args[j], cmds[i].command_name) == 0)
-				cmds[i].function(args, dynamic, pname);
+	for (a = 0; cmds[a].command_name; a++)
+		for (b = 0; args[b]; b++)
+			if (_stringcmp(args[b], cmds[a].command_name) == 0)
+				cmds[a].function(args, dynamic, pname);
 }

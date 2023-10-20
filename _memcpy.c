@@ -2,18 +2,18 @@
 
 /**
   * _memcpy - copies memory area.
-  * @dest: destnation buffer
+  * @dst: destnation buffer
   * @src: buffer to copy from
-  * @n: number of bytes to copy
+  * @b: number of bytes to copy
   * Return: pointer to dest
   */
-char *_memcpy(char *dest, char *src, unsigned int n)
+char *_memcpy(char *dst, char *src, unsigned int b)
 {
-	unsigned int i;
+	unsigned int j;
 
-	for (i = 0; i < n; i++)
+	for (j = 0; j < b; j++)
 	{
-		*(dest + i) = src[i];
+		*(dst + j) = src[j];
 	}
-	return (dest);
+	return (dst);
 }

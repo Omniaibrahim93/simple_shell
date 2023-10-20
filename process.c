@@ -1,45 +1,44 @@
 #include "main.h"
 
 /**
-  * inner_process - process the arguments.
-  * @str: command to be processed.
+  * inner_process - proces arguments.
+  * @str: command to processed.
   * @path: path array.
-  * @pname: program name.
-  * @command_num: command number.
-  * @dynamic: dynamic reference.
+  * @pname: prog name.
+  * @command_num: cmd num.
+  * @dynamic: dynam ref.
   */
 void inner_process(char *str, char **path, char *pname,
 		int command_num, ref_t *dynamic)
 {
-	int found;
-	char buf[MAX_LENGTH];
+	int fond;
+	char bufer[MAX_LENGTH];
 	char **args;
-	int i, space = 0;
+	int j, space = 0;
 
-	for (i = 0; str[i] == ' '; i++)
+	for (j = 0; str[j] == ' '; j++)
 		space++;
-	if (space == _strlen(str))
+	if (space == _stringlen(str))
 		return;
 	args = _tokenize(str, " \t\r\n\0");
-	found = check_cmd(args[0], path, buf);
-	switch (found)
+	fond = check_cmd(args[0], path, bufer);
+	switch (fond)
 	{
 		case 1:
-			/* call eval function */
-			set_err_code(0);
-			eval(buf, args);
+			set_error_code(0);
+			eval(bufer, args);
 			if (args)
 				free_buf(args);
 			break;
 		case 2:
-			built(args, dynamic, pname);
+			bult(args, dynamic, pname);
 			if (args)
 				free_buf(args);
 			break;
 		default:
 			cmd_not_found(pname, command_num, args[0]);
 			fflush(stderr);
-			set_err_code(127);
+			set_error_code(127);
 			if (args)
 				free_buf(args);
 			break;
@@ -54,24 +53,24 @@ void inner_process(char *str, char **path, char *pname,
   */
 void process(char **path, char *pname, int isaty)
 {
-	char *str = NULL, **args_all, **args_semi;
-	int i, semi_len;
+	char *stri = NULL, **args_all, **args_semi;
+	int j, semi_length;
 	int command_num = 0;
 	ref_t *dynamic = malloc(sizeof(ref_t));
 
 	dynamic->ptr3 = path;
-	str = _readline(&command_num, isaty, dynamic);
-	args_all = _tokenize(str, "\n");
+	stri = _readline(&command_num, isaty, dynamic);
+	args_all = _tokenize(stri, "\n");
 	args_semi = _tokenize(args_all[0], ";");
 	dynamic->ptr1 = args_all;
 	dynamic->ptr2 = args_semi;
-	free(str);
-	for (semi_len = 0; args_semi[semi_len]; semi_len++)
+	free(stri);
+	for (semi_length = 0; args_semi[semi_length]; semi_length++)
 		continue;
-	if (semi_len > 1)
+	if (semi_length > 1)
 	{
-		for (i = 0; args_semi[i]; i++)
-			inner_process(args_semi[i], path, pname, command_num, dynamic);
+		for (j = 0; args_semi[j]; j++)
+			inner_process(args_semi[j], path, pname, command_num, dynamic);
 		if (dynamic->ptr1)
 			free_buf(dynamic->ptr1);
 		if (dynamic->ptr2)
@@ -80,8 +79,8 @@ void process(char **path, char *pname, int isaty)
 	}
 	else
 	{
-		for (i = 0; args_all[i]; i++)
-			inner_process(args_all[i], path, pname, command_num, dynamic);
+		for (j = 0; args_all[j]; j++)
+			inner_process(args_all[j], path, pname, command_num, dynamic);
 		if (dynamic->ptr1)
 			free_buf(dynamic->ptr1);
 		if (dynamic->ptr2)
@@ -91,25 +90,25 @@ void process(char **path, char *pname, int isaty)
 }
 
 /**
-  * process_file - process the file content.
-  * @path: path environment variable.
+  * process_file - proc file content.
+  * @path: path env var.
   * @pname: shell name.
   * @fname: file name.
   */
 void process_file(char **path, char *pname, char *fname)
 {
-	char **args_all, *str = NULL;
-	int i;
+	char **args_all, *stri = NULL;
+	int j;
 	int command_num = 0;
 	ref_t *dynamic_ref = malloc(sizeof(ref_t));
 
-	str = read_textfile(fname, MAX_LENGTH);
-	if (str == NULL)
+	stri = read_textfile(fname, MAX_LENGTH);
+	if (stri == NULL)
 	{
 		file_not_found(pname, fname);
 		exit(127);
 	}
-	args_all = _tokenize(str, "\n");
-	for (i = 0; args_all[i]; i++)
-		inner_process(args_all[i], path, pname, command_num, dynamic_ref);
+	args_all = _tokenize(stri, "\n");
+	for (j = 0; args_all[j]; j++)
+		inner_process(args_all[j], path, pname, command_num, dynamic_ref);
 }

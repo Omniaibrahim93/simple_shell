@@ -9,36 +9,36 @@
   */
 char *_readline(int *command_num, int isaty, ref_t *dynamic)
 {
-	char *str = NULL;
-	size_t size = BUFFER_SIZE;
-	ssize_t b = 1;
+	char *stri = NULL;
+	size_t sizze = BUFFER_SIZE;
+	ssize_t p = 1;
 
-	while (b == 1 || (str && str[0] == '#'))
+	while (p == 1 || (stri && stri[0] == '#'))
 	{
 		if (isaty)
 		{
 			write(STDOUT_FILENO, "$ ", 3);
 			fflush(stdout);
 		}
-		b = _getline(&str, &size, STDIN_FILENO);
+		p = _getline(&stri, &sizze, STDIN_FILENO);
 		(*command_num)++;
 		set_cmd_num(*command_num);
 	}
-	if (b == -1)
+	if (p == -1)
 	{
-		free(str);
+		free(stri);
 		free_buf(dynamic->ptr3);
 		free(dynamic);
-		exit(get_err_code());
+		exit(get_error_code());
 	}
-	else if (b == 0) /* CTRL+D Handler */
+	else if (p == 0) /* CTRL+D Handler */
 	{
-		free(str);
+		free(stri);
 		write(STDOUT_FILENO, "\n", 2);
 		fflush(stdout);
 		free_buf(dynamic->ptr3);
 		free(dynamic);
-		exit(get_err_code());
+		exit(get_error_code());
 	}
-	return (str);
+	return (stri);
 }

@@ -1,40 +1,40 @@
 #include "main.h"
 
 /**
- * _setenv - our own setenv;
- * @arg: usr input
+ * _setenv - our setenv;
+ * @arg: user input
  * @dynamic: struct
- * @pname: program name.
+ * @pname: prog name.
  * Return: 0 on success.
  */
 
 int _setenv(char **arg, ref_t *dynamic, char *pname)
 {
-	int pos;
-	char *new;
+	int posi;
+	char *newe;
 	(void)dynamic;
 	(void)pname;
 
-	for (pos = 0; arg[pos] != NULL; pos++)
-		if (_strcmp(arg[pos], "setenv") == 0)
+	for (posi = 0; arg[posi] != NULL; posi++)
+		if (_stringcmp(arg[posi], "setenv") == 0)
 			break;
 
-	if (arg[pos + 1] == NULL || arg[pos + 2] == NULL)
+	if (arg[posi + 1] == NULL || arg[posi + 2] == NULL)
 		return (-1);
 
-	new = malloc(_strlen(arg[pos + 1]) * _strlen(arg[pos + 2]) + 3);
+	newe = malloc(_stringlen(arg[posi + 1]) * _stringlen(arg[posi + 2]) + 3);
 
-	if (new == NULL)
+	if (newe == NULL)
 	{
 		perror("malloc");
 		return (-1);
 	}
 
-	_strcpy(new, arg[pos + 1]);
-	_strcat(new, "=");
-	_strcat(new, arg[pos + 2]);
+	_stringcpy(newe, arg[posi + 1]);
+	_stringcat(newe, "=");
+	_stringcat(newe, arg[posi + 2]);
 
-	if (putenv(new) == -1)
+	if (putenv(newe) == -1)
 		return (-1);
 	return (0);
 }

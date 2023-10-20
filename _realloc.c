@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
-  * _realloc - reallocates memory size.
-  * @ptr: old pointer.
+  * _realloc - realloc memory size.
+  * @ptr: old ptr.
   * @size: new size.
   * Return: a pointer to the newly allocated memeory.
   */
 void *_realloc(void *ptr, size_t size)
 {
-	void *new_ptr = malloc(size);
+	void *newe_ptr = malloc(size);
 
-	if (new_ptr == NULL)
+	if (newe_ptr == NULL)
 	{
 		return (NULL);
 	}
-	_memcpy(new_ptr, ptr, size);
+	_memcpy(newe_ptr, ptr, size);
 	free(ptr);
-	return (new_ptr);
+	return (newe_ptr);
 }

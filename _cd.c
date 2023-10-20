@@ -13,8 +13,8 @@ int _set(char *name, char *value);
 
 int _cd(char **arg, __attribute__((unused))ref_t *dynamic, char *pname)
 {
-	char cwd[1024], *dir;
-	int change = 0;
+	char cwd[1024], *dira;
+	int chan = 0;
 
 	(void)pname;
 	if (getcwd(cwd, 1024) == NULL)
@@ -23,13 +23,13 @@ int _cd(char **arg, __attribute__((unused))ref_t *dynamic, char *pname)
 		return (-1);
 	}
 
-	dir = _path(arg);
-	if (dir == NULL)
+	dira = _path(arg);
+	if (dira == NULL)
 		return (-1);
 
-	change = chdir(dir);
+	chan = chdir(dira);
 
-	if (change == -1)
+	if (chan == -1)
 	{
 		perror("chdir");
 		return (-1);
@@ -37,13 +37,13 @@ int _cd(char **arg, __attribute__((unused))ref_t *dynamic, char *pname)
 
 
 	/* -> Update PWD, OLDPWD */
-	if (_set("PWD", dir) == -1)
+	if (_set("PWD", dira) == -1)
 		return (-1);
 
 	if (_set("OLDPWD", cwd) == -1)
 		return (-1);
 
-	set_err_code(0);
+	set_error_code(0);
 	return (0);
 
 }
@@ -59,7 +59,7 @@ char *_path(char **arg)
 
 	if (arg[1] == NULL)
 		return (_getenv("HOME"));
-	else if (_strcmp(arg[1], "-") == 0)
+	else if (_stringcmp(arg[1], "-") == 0)
 	{
 
 		if (_getenv("OLDPWD") == NULL)
@@ -81,18 +81,18 @@ char *_path(char **arg)
 
 int _set(char *name, char *value)
 {
-	char *new;
+	char *ne;
 
-	new = malloc(_strlen(name) + _strlen(value) + 2);
-	if (new == NULL)
+	ne = malloc(_stringlen(name) + _stringlen(value) + 2);
+	if (ne == NULL)
 		return (-1);
 
-	_strcpy(new, name);
-	_strcat(new, "=");
-	_strcat(new, value);
+	_stringcpy(ne, name);
+	_stringcat(ne, "=");
+	_stringcat(ne, value);
 
-	if (putenv(new) == -1)
+	if (putenv(ne) == -1)
 		perror("putenv");
-	free(new);
+	free(ne);
 	return (0);
 }

@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _env - our own env command
- * @arg: parameter
- * @dynamic: dynamic refernce.
+ * _env - our env command
+ * @arg: param
+ * @dynamic: dynamic ref.
  * @pname: program name.
  * Return: always 0 on success
  */
