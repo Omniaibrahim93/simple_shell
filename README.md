@@ -1,2 +1,3 @@
 Sipmle Shell Project
-by Hind Amir and Omnia Ibrahim
+by Hind Amir
+Omnia Ibrahim
