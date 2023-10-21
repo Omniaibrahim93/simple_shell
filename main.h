@@ -65,12 +65,12 @@ char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, size_t n);
 int _strlen(char *str);
-char *_memset(char *s, char b, unsigned int n);
+char *_memset(char *str, char b, unsigned int nf);
 char *_strchr(char *s, char c);
 char *_strncpy(char *dest, char *src, int n);
-char *_memcpy(char *dest, char *src, unsigned int n);
-void *_realloc(void *ptr, size_t size);
-int _atoi(char *s);
+char *_memcpy(char *dst, char *src, unsigned int nb);
+void *_realloc(void *old_ptr, size_t sze);
+int _atoi(char *str);
 char *_readline(int *command_num, int isaty, ref_t *);
 char *_dtos(long);
 char *read_textfile(char *filename, size_t letters);
@@ -88,8 +88,8 @@ void print_illegal_number(char **args, char *pname);
 void file_not_found(char *pname, char *fname);
 
 /* General functions */
-char *_getenv(char *s);
-ssize_t _getline(char **lineptr, size_t *n, int fd);
+char *_getenv(char *str);
+ssize_t _getline(char **lineptr, size_t *nb, int fdi);
 int _putenv(char *string);
 int set_err_code(int);
 int get_err_code(void);
@@ -98,9 +98,9 @@ int get_cmd_num(void);
 
 /* printing functions */
 int _putchar(char, int);
-int print_c(char c, int);
-int print_s(char *s, int);
-int print_d(long d, int);
+int print_c(char ch, int);
+int print_s(char *str, int);
+int print_d(long i, int);
 
 /* built-ins function */
 

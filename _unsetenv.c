@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
- * _unsetenv - delete an environment variable
- * @arg: user input
- * @dynamic: dynamic reference.
- * @pname: program name.
+ * _unsetenv - delete env var
+ * @arg: user i/p
+ * @dynamic: dynamic ref.
+ * @pname: prog name.
  * Return: 0 on success, -1 on failure.
  */
 
 int _unsetenv(char **arg, ref_t *dynamic, char *pname)
 {
-	int pos;
-	char *variable;
+	int posi;
+	char *var;
 
 	(void)dynamic;
 	(void)pname;
 
-	for (pos = 0; arg[pos] != NULL; pos++)
-		if (_strcmp(arg[pos], "unsetenv") == 0)
+	for (posi = 0; arg[posi] != NULL; posi++)
+		if (_strcmp(arg[posi], "unsetenv") == 0)
 			break;
 
-	variable = getenv(arg[pos + 1]);
-	if (variable)
-		*variable = '\0';
+	var = getenv(arg[posi + 1]);
+	if (var)
+		*var = '\0';
 	else
 		return (-1);
 

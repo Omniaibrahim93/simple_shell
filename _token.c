@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _tokenize - function that split a string into tokens, our own (strtok).
+ * _tokenize - func split a string into tokens.
  * @str: the string to tokenize
  * @split: the delim used to split's string.
  * Return: the tokenize string on success, on failure NULL.
@@ -11,13 +11,13 @@ char **_tokenize(char *str, char *split)
 {
 	char **toks;
 	int delim = 0;
-	int i, index = 0;
-	int start, end;
+	int j, indx = 0;
+	int strt, end;
 
 	if (!str || !split)
 		return (NULL);
-	for (i = 0; str[i]; i++)
-		if (_strchr(split, str[i]) != NULL)
+	for (j = 0; str[j]; j++)
+		if (_strchr(split, str[j]) != NULL)
 			delim++;
 	toks = (char **)malloc(sizeof(char *) * (delim + 2));
 	if (!toks)
@@ -26,26 +26,26 @@ char **_tokenize(char *str, char *split)
 		return (NULL);
 	}
 
-	start = 0;
-	while (str[start] != '\0')
+	strt = 0;
+	while (str[strt] != '\0')
 	{
-		while (str[start] != '\0' && _strchr(split, str[start]) != NULL)
-			start++;
-		if (str[start] == '\0')
+		while (str[strt] != '\0' && _strchr(split, str[strt]) != NULL)
+			strt++;
+		if (str[strt] == '\0')
 			break;
 
-		end = start;
+		end = strt;
 		while (str[end] != '\0' && _strchr(split, str[end]) == NULL)
 			end++;
 
-		toks[index] = malloc(end - start + 1);
-		_strncpy(toks[index], str + start, end - start);
-		toks[index][end - start] = '\0';
-		index++;
-		start = end;
+		toks[indx] = malloc(end - strt + 1);
+		_strncpy(toks[indx], str + strt, end - strt);
+		toks[indx][end - strt] = '\0';
+		indx++;
+		strt = end;
 	}
 
-	toks[index] = NULL;
+	toks[indx] = NULL;
 
 	return (toks);
 }

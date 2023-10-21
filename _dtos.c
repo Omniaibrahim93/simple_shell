@@ -2,38 +2,38 @@
 #include <stdlib.h>
 
 /**
- * _dtos - integer to string.
- * @d: integer to convert
+ * _dtos - int to str.
+ * @di: int to convert
  * Return: char pointer
  */
-char *_dtos(long d)
+char *_dtos(long di)
 {
-	int len = 1;
-	int sign = 0;
-	int i = 0;
+	int length = 1;
+	int sin = 0;
+	int j = 0;
 	int ent;
 	long div = 10;
 	char *buff;
 
-	if (d < 0)
+	if (di < 0)
 	{
-		sign = 1;
-		d = -d;
+		sin = 1;
+		di = -di;
 	}
-	while (d / div > 0)
+	while (di / div > 0)
 	{
 		div *= 10;
-		len++;
+		length++;
 	}
-	buff = malloc(sizeof(char) * len + sign + 1);
-	if (sign)
-		buff[i++] = '-';
+	buff = malloc(sizeof(char) * length + sin + 1);
+	if (sin)
+		buff[j++] = '-';
 	while (div > 1)
 	{
 		div /= 10;
-		ent = d / div;
-		buff[i++] = '0' + (ent % 10);
+		ent = di / div;
+		buff[j++] = '0' + (ent % 10);
 	}
-	buff[i] = '\0';
+	buff[j] = '\0';
 	return (buff);
 }

@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-  * execute - execute a command.
-  * @pid: process id.
-  * @command: the command to be executed.
+  * execute - exec command.
+  * @pid: proc id.
+  * @command: the cmd to be exec.
   * @args: argument vector.
   */
 void execute(pid_t pid, char *command, char **args)
 {
-	int status;
+	int statu;
 
 	if (pid == 0)
 	{
@@ -18,7 +18,7 @@ void execute(pid_t pid, char *command, char **args)
 	else
 	{
 		/* parent process wait for child process */
-		waitpid(pid, &status, 0);
-		set_err_code(WEXITSTATUS(status));
+		waitpid(pid, &statu, 0);
+		set_err_code(WEXITSTATUS(statu));
 	}
 }

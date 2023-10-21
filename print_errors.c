@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-  * cmd_not_found - print command not found error.
-  * @pname: program name.
-  * @command_num: command execution number.
+  * cmd_not_found - print command not found err.
+  * @pname: prog name.
+  * @command_num: cmd exec num.
   * @command: command to be executed.
   */
 void cmd_not_found(char *pname, int command_num, char *command)
@@ -21,9 +21,9 @@ void cmd_not_found(char *pname, int command_num, char *command)
 }
 
 /**
-  * print_illegal_number - print illegal number error.
-  * @args: argument of the command.
-  * @pname: program name.
+  * print_illegal_number - print ilegal num err.
+  * @args: arg of the cmd.
+  * @pname: prog name.
   */
 void print_illegal_number(char **args, char *pname)
 {
@@ -44,8 +44,8 @@ void print_illegal_number(char **args, char *pname)
 }
 
 /**
-  * file_not_found - print file not found error.
-  * @pname: program name.
+  * file_not_found - print file not found.
+  * @pname: prog name.
   * @fname: file name.
   */
 void file_not_found(char *pname, char *fname)

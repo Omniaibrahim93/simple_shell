@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-  * eval - evaluates commands.
+  * eval - evaluat cmd.
   * @command: command to be executed.
-  * @args: arguments vector.
+  * @args: argument vect.
   */
 void eval(char *command, char **args)
 {
-	pid_t child_pid;
+	pid_t chld_pid;
 
-	child_pid = fork();
-	execute(child_pid, command, args);
+	chld_pid = fork();
+	execute(chld_pid, command, args);
 }

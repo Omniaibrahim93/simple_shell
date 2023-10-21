@@ -1,32 +1,32 @@
 #include "main.h"
 
 /**
-  * isnum - check for numbers
-  * @a: character to test
+  * isnum - check num
+  * @n: character test
   * Return: 1 if number 0 otherwise
   */
-int isnum(char a)
+int isnum(char n)
 {
-	if (a >= '0' && a <= '9')
+	if (n >= '0' && n <= '9')
 		return (1);
 	return (0);
 }
 
 /**
-  * hyphens - check number of minus signs
-  * @string: string to check
-  * @i: where the iteration stopped
+  * hyphens - check number of minus
+  * @str: string  check
+  * @is: where the iteration stopped
   * Return: number of hyphens
   */
-int hyphens(char *string, int *i)
+int hyphens(char *str, int *is)
 {
-	char *str = string;
+	char *str1 = str;
 	int sum = 0;
 
-	while (!isnum(*str) && *str != '\0')
+	while (!isnum(*str1) && *str1 != '\0')
 	{
-		(*i)++;
-		if (*str++ == '-')
+		(*is)++;
+		if (*str1++ == '-')
 			sum++;
 	}
 	return (sum);
@@ -34,28 +34,28 @@ int hyphens(char *string, int *i)
 
 /**
   * _atoi - convert a string to integer
-  * @s: string to convert
+  * @str: str to convert
   * Return: integer that is converted
   */
-int _atoi(char *s)
+int _atoi(char *str)
 {
-	int i = 0, num, mul = 1;
+	int j = 0, nm, ml = 1;
 	unsigned int ans = 0;
-	char *a = s;
+	char *a = str;
 
-	num = hyphens(a, &i);
+	nm = hyphens(a, &j);
 
-	a += i;
+	a += j;
 	while (isnum(*++a) && *a != '\0')
 		mul *= 10;
 
-	s += i;
-	while (isnum(*s) && *s != '\0')
+	str += j;
+	while (isnum(*str) && *str != '\0')
 	{
-		ans += (*s++ - '0') * mul;
-		mul /= 10;
+		ans += (*str++ - '0') * ml;
+		ml /= 10;
 	}
-	if (num % 2)
+	if (nm % 2)
 		return (-((unsigned int)ans));
 	return (ans);
 }
