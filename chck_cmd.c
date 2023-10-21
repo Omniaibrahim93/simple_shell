@@ -25,9 +25,9 @@ int check_cmd(char *command, char **path, char *buf)
 	}
 
 	j = 0;
-	while (builtins[i])
+	while (builtins[j])
 	{
-		if (_strcmp(builtins[i++], command) == 0)
+		if (_strcmp(builtins[j++], command) == 0)
 		{
 			_memset(buf, '\0', MAX_LENGTH);
 			_strcpy(buf, command);

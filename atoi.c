@@ -47,7 +47,7 @@ int _atoi(char *str)
 
 	a += j;
 	while (isnum(*++a) && *a != '\0')
-		mul *= 10;
+		ml *= 10;
 
 	str += j;
 	while (isnum(*str) && *str != '\0')
