@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * _realloc - realloc mem size.
+  * _realloc - reallocates memory size.
   * @ptr: old pointer.
   * @size: new size.
   * Return: a pointer to the newly allocated memeory.

@@ -2,8 +2,8 @@
 
 /**
  * main - Entry Point
- * @argc: count of arg.
- * @argv: arg string.
+ * @argc: arguments count.
+ * @argv: arguments string.
  * Return: 0 on Success
  */
 
@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 	}
 	else if (argc == 2)
 	{
+		/* execute file commands */
 		process_file(path, argv[0], argv[1]);
 		if (path)
 			free_buf(path);

@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_c - print char.
- * @c: char to print
+ * print_c - print a character.
+ * @c: character to print
  * @file_no: Stream
  * Return: length of the variable or -1
  */
@@ -12,42 +12,42 @@ int print_c(char c, int file_no)
 }
 
 /**
- * print_s - print str
- * @s: string to print
+ * print_s - print a string
+ * @s: string to be printed
  * @file_no: Stream
  * Return: length of the variable or -1
  */
 int print_s(char *s, int file_no)
 {
-	int j = 0;
+	int i = 0;
 
 	if (s == NULL)
 		return (-1);
-	while (s[j])
+	while (s[i])
 	{
-		_putchar(s[j], file_no);
-		j++;
+		_putchar(s[i], file_no);
+		i++;
 	}
-	return (j);
+	return (i);
 }
 
 /**
- * print_d - print int
- * @d: num to print
+ * print_d - print an integer
+ * @d: number to be printed
  * @file_no: Stream
  * Return: length of the variable or -1
  */
 int print_d(long d, int file_no)
 {
 	char *dtos;
-	int j = 0;
+	int i = 0;
 
 	dtos = _dtos(d);
-	while (dtos[j])
+	while (dtos[i])
 	{
-		_putchar(dtos[j], file_no);
-		j++;
+		_putchar(dtos[i], file_no);
+		i++;
 	}
 	free(dtos);
-	return (j);
+	return (i);
 }
