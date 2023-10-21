@@ -5,18 +5,18 @@
   * @str: name of the env.
   * Return: string corrospond to value of the s.
   */
-char *_getenv(char *str)
+char *_getenv(char *s)
 {
-	unsigned int j = 0;
-	char **env = environ;
-	size_t length = _strlen(s);
+        unsigned int i = 0;
+        char **env = environ;
+        size_t len = _strlen(s);
 
-	while (env[j] && _strncmp(env[j], str, length))
-		j++;
+        while (env[i] && _strncmp(env[i], s, len))
+                i++;
 
-	if (env[j] == NULL)
-		return (NULL);
-	return (env[j] + length + 1);
+        if (env[i] == NULL)
+                return (NULL);
+        return (env[i] + len + 1);
 }
 
 /**
