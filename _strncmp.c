@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _strncmp - funciton that compare two strings.
- * @s1: the 1st string.
- * @s2: the 2nd string.
- * @n: buffer length to compare.
+ * _strncmp - func compare 2 strs.
+ * @s1: 1st str.
+ * @s2: 2nd str.
+ * @n: buff length to compare.
  * Return: (< 0) if first character doesn't match has a lower value in s1
  * than in s2.
  * ** (0) if both strings are equal.

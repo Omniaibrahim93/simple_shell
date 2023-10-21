@@ -1,44 +1,44 @@
 #include "main.h"
 
 /**
-  * _readline - read a line from standared input
-  * @command_num: input numbers.
+  * _readline - read line from input
+  * @command_num: i/p nums.
   * @isaty: is a tty ?
-  * @dynamic: dynamic reference.
+  * @dynamic: dynam ref.
   * Return: input string.
   */
 char *_readline(int *command_num, int isaty, ref_t *dynamic)
 {
-	char *str = NULL;
-	size_t size = BUFFER_SIZE;
-	ssize_t b = 1;
+	char *str1 = NULL;
+	size_t sze = BUFFER_SIZE;
+	ssize_t a = 1;
 
-	while (b == 1 || (str && str[0] == '#'))
+	while (a == 1 || (str1 && str1[0] == '#'))
 	{
 		if (isaty)
 		{
 			write(STDOUT_FILENO, "$ ", 3);
 			fflush(stdout);
 		}
-		b = _getline(&str, &size, STDIN_FILENO);
+		a = _getline(&str1, &sze, STDIN_FILENO);
 		(*command_num)++;
 		set_cmd_num(*command_num);
 	}
-	if (b == -1)
+	if (a == -1)
 	{
-		free(str);
+		free(str1);
 		free_buf(dynamic->ptr3);
 		free(dynamic);
 		exit(get_err_code());
 	}
-	else if (b == 0) /* CTRL+D Handler */
+	else if (a == 0) /* CTRL+D Handler */
 	{
-		free(str);
+		free(str1);
 		write(STDOUT_FILENO, "\n", 2);
 		fflush(stdout);
 		free_buf(dynamic->ptr3);
 		free(dynamic);
 		exit(get_err_code());
 	}
-	return (str);
+	return (str1);
 }

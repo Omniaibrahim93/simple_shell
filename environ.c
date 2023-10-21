@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _env - our own env command
- * @arg: parameter
- * @dynamic: dynamic refernce.
- * @pname: program name.
+ * _env - env command
+ * @arg: param
+ * @dynamic: dynamic ref.
+ * @pname: prog name.
  * Return: always 0 on success
  */
 

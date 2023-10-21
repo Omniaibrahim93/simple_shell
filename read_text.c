@@ -7,34 +7,34 @@
 #include <fcntl.h>
 
 /**
- * read_textfile - reads text file and prints it to the POSIX standard output.
+ * read_textfile - reads text and prints it to the o/p.
  * @filename: file name.
  * @letters: number of letters to print.
  * Return: string in the file
  */
 char *read_textfile(char *filename, size_t letters)
 {
-	int fd, rd;
-	char *buf;
+	int fdi, rdi;
+	char *bufer;
 
-	fd = rd = 0;
+	fdi = rdi = 0;
 	if (!filename || !letters)
 		return (NULL);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	fdi = open(filename, O_RDONLY);
+	if (fdi < 0)
 		return (NULL);
 
-	buf = malloc(sizeof(char) * letters + 1);
-	if (!buf)
+	bufer = malloc(sizeof(char) * letters + 1);
+	if (!bufer)
 		return (NULL);
-	rd = read(fd, buf, letters);
-	if (rd < 0)
+	rdi = read(fdi, bufer, letters);
+	if (rdi < 0)
 	{
-		free(buf);
+		free(bufer);
 		return (NULL);
 	}
-	buf[letters] = '\0';
+	bufer[letters] = '\0';
 
-	close(fd);
-	return (buf);
+	close(fdi);
+	return (bufer);
 }

@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-  * _getline - read line from the file descriptor.
-  * @lineptr: variable to store input.
-  * @n: buffer size.
-  * @fd: file descriptor.
+  * _getline - read line from file descriptor.
+  * @lineptr: var to store i/p.
+  * @n: buf size.
+  * @fd: file descrip.
   * Return: the number of bytes readed or -1 (eof, err, ...).
   */
 
