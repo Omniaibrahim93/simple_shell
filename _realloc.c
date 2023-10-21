@@ -2,19 +2,19 @@
 
 /**
   * _realloc - realloc mem size.
-  * @old_ptr: old pointer.
-  * @sze: new size.
+  * @ptr: old pointer.
+  * @size: new size.
   * Return: a pointer to the newly allocated memeory.
   */
-void *_realloc(void *old_ptr, size_t sze)
+void *_realloc(void *ptr, size_t size)
 {
-	void *new_ptr = malloc(sze);
+	void *new_ptr = malloc(size);
 
 	if (new_ptr == NULL)
 	{
 		return (NULL);
 	}
-	_memcpy(new_ptr, old_ptr, sze);
-	free(old_ptr);
+	_memcpy(new_ptr, ptr, size);
+	free(ptr);
 	return (new_ptr);
 }

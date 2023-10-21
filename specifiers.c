@@ -2,30 +2,30 @@
 
 /**
  * print_c - print char.
- * @ch: char to print
+ * @c: char to print
  * @file_no: Stream
  * Return: length of the variable or -1
  */
-int print_c(char ch, int file_no)
+int print_c(char c, int file_no)
 {
-	return (_putchar(ch, file_no));
+	return (_putchar(c, file_no));
 }
 
 /**
  * print_s - print str
- * @str: string to print
+ * @s: string to print
  * @file_no: Stream
  * Return: length of the variable or -1
  */
-int print_s(char *str, int file_no)
+int print_s(char *s, int file_no)
 {
 	int j = 0;
 
-	if (str == NULL)
+	if (s == NULL)
 		return (-1);
-	while (str[j])
+	while (s[j])
 	{
-		_putchar(str[j], file_no);
+		_putchar(s[j], file_no);
 		j++;
 	}
 	return (j);
@@ -33,16 +33,16 @@ int print_s(char *str, int file_no)
 
 /**
  * print_d - print int
- * @i: num to print
+ * @d: num to print
  * @file_no: Stream
  * Return: length of the variable or -1
  */
-int print_d(long i, int file_no)
+int print_d(long d, int file_no)
 {
 	char *dtos;
 	int j = 0;
 
-	dtos = _dtos(i);
+	dtos = _dtos(d);
 	while (dtos[j])
 	{
 		_putchar(dtos[j], file_no);
